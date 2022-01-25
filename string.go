@@ -3,7 +3,7 @@ package tool
 import (
 	"bytes"
 	"errors"
-	"string/evan"
+	"github.com/iEvan-lhr/string/evan"
 
 	"unicode/utf8"
 	"unsafe"
