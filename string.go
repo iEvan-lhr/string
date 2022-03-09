@@ -74,6 +74,25 @@ func (s *String) SplitString(str String) []*String {
 	return order
 }
 
+func (s *String) FirstUpper() {
+	if s.buf[0] > 90 {
+		s.buf[0] = s.buf[0] - 32
+	}
+}
+func (s *String) FirstLower() {
+	if s.buf[0] < 97 {
+		s.buf[0] = s.buf[0] + 32
+	}
+}
+func (s *String) FirstUpperBackString() string {
+	s.FirstUpper()
+	return s.string()
+}
+func (s *String) FirstLowerBackString() string {
+	s.FirstLower()
+	return s.string()
+}
+
 func noescape(p unsafe.Pointer) unsafe.Pointer {
 	x := uintptr(p)
 	return unsafe.Pointer(x ^ 0)
