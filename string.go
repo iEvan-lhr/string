@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"github.com/iEvan-lhr/string/evan"
+	"github.com/thinkeridea/go-extend/exbytes"
 
 	"unicode/utf8"
 	"unsafe"
@@ -28,8 +29,18 @@ func EString(str string) *String {
 
 // ToString 字符串转型输出
 func (s *String) ToString() string {
-	return s.string()
+	return exbytes.ToString(s.buf)
 
+}
+
+// CheckString 检查是否相等
+func (s *String) CheckString(str string) bool {
+	for i := range str {
+		if s.buf[i] != str[i] {
+			return false
+		}
+	}
+	return true
 }
 
 // JoinStrString 拼接字符串
